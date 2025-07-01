@@ -1,588 +1,768 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UKOR SM - Премиальный керамогранит для бизнеса</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['PT Sans', 'system-ui', 'sans-serif']
-                    },
-                    colors: {
-                        'brand': {
-                            50: '#f8fafc',
-                            500: '#475569',
-                            600: '#334155',
-                            900: '#0f172a'
-                        }
-                    }
-                }
+    <title>МИНЕРВА ПЛИТКА - Премиальные керамогранитные решения</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-green: #133332;
+            --stone-grey: #D9D9D6;
+            --warm-sand: #CBBFAD;
+            --soft-white: #F6F6F3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--deep-green);
+            background-color: var(--soft-white);
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background-color: var(--deep-green);
+            padding: 2rem 0;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-logo {
+            padding: 0 2rem 3rem;
+            border-bottom: 1px solid rgba(249, 249, 247, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--soft-white);
+            letter-spacing: 2px;
+        }
+
+        .sidebar-logo p {
+            color: var(--warm-sand);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-nav {
+            padding: 0 2rem;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-nav a {
+            color: var(--stone-grey);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--warm-sand);
+        }
+
+        .download-catalog {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+        }
+
+        .catalog-btn {
+            background-color: var(--warm-sand);
+            color: var(--deep-green);
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .catalog-btn:hover {
+            background-color: #b8a68a;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(19, 51, 50, 0.3), rgba(19, 51, 50, 0.3)), url('keys/hero-interior?prompt=Modern%20minimalist%20interior%20with%20large%20format%20porcelain%20tiles%2C%20natural%20light%2C%20clean%20architecture%2C%20elegant%20living%20space') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--soft-white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            background-color: transparent;
+            color: var(--soft-white);
+            border: 2px solid var(--warm-sand);
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .hero-cta:hover {
+            background-color: var(--warm-sand);
+            color: var(--deep-green);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-green);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Product Collections */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .collection-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(19, 51, 50, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .collection-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .collection-content {
+            padding: 2rem;
+        }
+
+        .collection-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--deep-green);
+        }
+
+        .collection-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .collection-link {
+            color: var(--warm-sand);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            margin: 0;
+            max-width: none;
+            padding: 6rem 4rem;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--deep-green);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            height: 400px;
+            background: url('keys/about-showroom?prompt=Modern%20tile%20showroom%20interior%2C%20professional%20display%2C%20porcelain%20samples%2C%20clean%20architecture') center/cover;
+            border-radius: 8px;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--stone-grey);
+            margin: 0;
+            max-width: none;
+            padding: 6rem 4rem;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--deep-green);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--deep-green);
+            color: var(--soft-white);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            justify-self: start;
+        }
+
+        .submit-btn:hover {
+            background-color: #0f2827;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--deep-green);
+            color: var(--soft-white);
+            padding: 4rem 0 2rem;
+            margin-left: -280px;
+            padding-left: 280px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--warm-sand);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--stone-grey);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--warm-sand);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(249, 249, 247, 0.1);
+            color: var(--stone-grey);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-header {
+                display: block;
+                background-color: var(--deep-green);
+                padding: 1rem 2rem;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 999;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .mobile-logo {
+                color: var(--soft-white);
+                font-family: 'Playfair Display', serif;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            .mobile-catalog {
+                background-color: var(--warm-sand);
+                color: var(--deep-green);
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 4px;
+                font-weight: 600;
+                font-size: 0.8rem;
+                cursor: pointer;
+            }
+
+            .menu-toggle {
+                background: none;
+                border: none;
+                color: var(--soft-white);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .hero {
+                margin-top: 70px;
+                height: calc(100vh - 70px);
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 4rem 2rem;
+            }
+
+            .footer {
+                margin-left: 0;
+                padding-left: 0;
             }
         }
-    </script>
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .collections-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
 </head>
-<body class="font-sans bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-40">
-                <div class="flex items-center space-x-3">
-                    <img src="yEtYzPaeFWjyQIYBLHlSR" alt="UKOR SM" class="h-36 w-36 rounded-full">
-                </div>
-                <div class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
-                    <a href="#home" class="text-brand-600 hover:text-brand-900 font-medium">Главная</a>
-                    <a href="#products" class="text-brand-600 hover:text-brand-900 font-medium">Продукция</a>
-                    <a href="#about" class="text-brand-600 hover:text-brand-900 font-medium">О нас</a>
-                    <a href="#contact" class="text-brand-600 hover:text-brand-900 font-medium">Контакты</a>
-                </div>
-                <div></div>
-            </div>
+<body>
+    <!-- Mobile Header -->
+    <div class="mobile-header" style="display: none;">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="mobile-logo">МИНЕРВА ПЛИТКА</div>
+        <button class="mobile-catalog">КАТАЛОГ</button>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <h1>МИНЕРВА ПЛИТКА</h1>
+            <p>Премиальные керамогранитные решения</p>
+        </div>
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#collections">Коллекции</a></li>
+                <li><a href="#about">О компании</a></li>
+                <li><a href="#gallery">Проекты</a></li>
+                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#specifications">Характеристики</a></li>
+                <li><a href="#services">Услуги</a></li>
+            </ul>
+        </div>
+        <div class="download-catalog">
+            <button class="catalog-btn" onclick="downloadCatalog()">
+                📖 Скачать каталог
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-40 bg-gradient-to-br from-brand-50 to-white">
-        <div class="max-w-7xl mx-auto px-4 py-20">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-5xl font-bold text-brand-900 mb-6 leading-tight">
-                        Премиальный керамогранит для вашего бизнеса
-                    </h1>
-                    <p class="text-xl text-brand-600 mb-8 leading-relaxed">
-                        Поставляем высококачественную керамогранитную плитку для коммерческих проектов. 
-                        Более 500 довольных B2B клиентов по всей стране.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="bg-brand-600 text-white border-2 border-brand-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-brand-600 hover:border-brand-600 transition shadow-lg">
-                            Получить предложение
-                        </button>
-                        <button id="catalogBtn2" class="border-2 border-brand-600 text-brand-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-600 hover:text-white transition">
-                            Смотреть каталог
-                        </button>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="bg-white p-8 rounded-2xl shadow-2xl">
-                        <img src="yEtYzPaeFWjyQIYBLHlSR" alt="UKOR SM Logo" class="w-48 h-48 mx-auto mb-6">
-                        <div class="text-center">
-                            <p class="text-brand-600 text-lg">Ваш надежный партнер в мире керамогранита</p>
-                        </div>
-                    </div>
-                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-brand-100 rounded-full opacity-60"></div>
-                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-brand-200 rounded-full opacity-40"></div>
-                </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h2>Архитектурное совершенство<br>в каждой плитке</h2>
+                <p>Премиальные керамогранитные решения для взыскательных архитекторов, дизайнеров и строительных профессионалов. Где качество встречается с вечным дизайном.</p>
+                <button class="hero-cta" onclick="scrollToSection('collections')">Смотреть коллекции</button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Section -->
-    <section class="bg-brand-600 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-4xl font-bold mb-2">500+</div>
-                    <div class="text-brand-100">B2B клиентов</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold mb-2">15</div>
-                    <div class="text-brand-100">лет на рынке</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold mb-2">1000+</div>
-                    <div class="text-brand-100">видов плитки</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold mb-2">99%</div>
-                    <div class="text-brand-100">довольных клиентов</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-brand-900 mb-4">Наша продукция</h2>
-                <p class="text-xl text-brand-600 max-w-3xl mx-auto">
-                    Широкий ассортимент керамогранита для любых коммерческих проектов
-                </p>
-            </div>
+        <!-- Collections Section -->
+        <section id="collections">
+            <h2 class="section-title">Наши коллекции</h2>
+            <p class="section-subtitle">Тщательно изготовленный керамогранит, сочетающий техническое совершенство с эстетическим идеалом.</p>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                    <div class="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H3m2 0h4M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-brand-900 mb-4">Офисные помещения</h3>
-                    <p class="text-brand-600 mb-6">Элегантные решения для корпоративных интерьеров. Износостойкость и стиль в одном продукте.</p>
-                    <ul class="text-sm text-brand-600 space-y-2">
-                        <li>• Антискользящие покрытия</li>
-                        <li>• Простота ухода</li>
-                        <li>• Современный дизайн</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                    <div class="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-brand-900 mb-4">Торговые центры</h3>
-                    <p class="text-brand-600 mb-6">Прочные покрытия для зон с высокой проходимостью. Сохраняют вид годами.</p>
-                    <ul class="text-sm text-brand-600 space-y-2">
-                        <li>• Повышенная прочность</li>
-                        <li>• Устойчивость к нагрузкам</li>
-                        <li>• Разнообразие фактур</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
-                    <div class="w-16 h-16 bg-brand-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-brand-900 mb-4">Жилые комплексы</h3>
-                    <p class="text-brand-600 mb-6">Качественные материалы для застройщиков. Оптимальное соотношение цены и качества.</p>
-                    <ul class="text-sm text-brand-600 space-y-2">
-                        <li>• Большие объемы</li>
-                        <li>• Выгодные цены</li>
-                        <li>• Быстрая доставка</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-brand-900 mb-4">Почему выбирают нас</h2>
-                <p class="text-xl text-brand-600">Наши преимущества</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Гарантия качества</h3>
-                    <p class="text-brand-600">Все материалы сертифицированы. Гарантия на продукцию до 25 лет.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Быстрая доставка</h3>
-                    <p class="text-brand-600">Собственная логистика. Доставка по России в течение 3-7 дней.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Выгодные цены</h3>
-                    <p class="text-brand-600">Прямые поставки от производителей. Скидки для постоянных клиентов.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Техническая поддержка</h3>
-                    <p class="text-brand-600">Помощь в выборе материалов и расчете количества для вашего проекта.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Аналитика рынка</h3>
-                    <p class="text-brand-600">Консультации по трендам и новинкам в мире керамогранита.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-900 mb-3">Персональный менеджер</h3>
-                    <p class="text-brand-600">Индивидуальный подход к каждому B2B клиенту и его потребностям.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold text-brand-900 mb-6">О нашей компании</h2>
-                    <p class="text-lg text-brand-600 mb-6 leading-relaxed">
-                        Уже более 15 лет мы являемся надежным партнером для бизнеса в сфере керамогранита. 
-                        Наша миссия — предоставлять качественные материалы, которые служат десятилетиями.
-                    </p>
-                    <p class="text-lg text-brand-600 mb-8 leading-relaxed">
-                        Мы работаем напрямую с ведущими производителями Европы и Азии, что позволяет нам 
-                        предлагать лучшие цены при неизменно высоком качестве продукции.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-2 h-2 bg-brand-600 rounded-full"></div>
-                            <span class="text-brand-600">Прямые поставки от производителей</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-2 h-2 bg-brand-600 rounded-full"></div>
-                            <span class="text-brand-600">Собственные складские комплексы</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-2 h-2 bg-brand-600 rounded-full"></div>
-                            <span class="text-brand-600">Команда экспертов с 10+ лет опыта</span>
-                        </div>
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <div class="collection-image" style="background-image: url('keys/marble-collection?prompt=Luxury%20marble-look%20porcelain%20tiles%2C%20elegant%20veining%2C%20large%20format%2C%20premium%20interior')"></div>
+                    <div class="collection-content">
+                        <h3>Мраморная эссенция</h3>
+                        <p>Крупноформатный керамогранит, вдохновленный лучшими мраморными карьерами мира. Доступен в форматах 60x120см и 120x120см.</p>
+                        <a href="#" class="collection-link">Смотреть коллекцию →</a>
                     </div>
                 </div>
-                <div class="relative">
-                    <div class="bg-gradient-to-br from-brand-100 to-brand-200 rounded-2xl p-12 text-center">
-                        <img src="yEtYzPaeFWjyQIYBLHlSR" alt="UKOR SM" class="w-40 h-40 mx-auto mb-8">
-                        <p class="text-brand-600 text-lg">Качество, проверенное временем</p>
+
+                <div class="collection-card">
+                    <div class="collection-image" style="background-image: url('keys/wood-collection?prompt=Wood-look%20porcelain%20tiles%2C%20natural%20grain%20texture%2C%20warm%20tones%2C%20modern%20interior')"></div>
+                    <div class="collection-content">
+                        <h3>Натуральное дерево</h3>
+                        <p>Аутентичные текстуры дерева с прочностью керамогранита. Идеально для зон с высокой проходимостью, требующих природного тепла.</p>
+                        <a href="#" class="collection-link">Смотреть коллекцию →</a>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-image" style="background-image: url('keys/concrete-collection?prompt=Industrial%20concrete-look%20porcelain%20tiles%2C%20minimalist%20texture%2C%20modern%20architecture')"></div>
+                    <div class="collection-content">
+                        <h3>Городской бетон</h3>
+                        <p>Современная эстетика бетона для современных архитектурных проектов. Доступна в различных вариантах отделки поверхности.</p>
+                        <a href="#" class="collection-link">Смотреть коллекцию →</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-brand-900 text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Свяжитесь с нами</h2>
-                <p class="text-xl text-brand-100">Готовы обсудить ваш проект?</p>
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Качество и мастерство с 1985 года</h3>
+                    <p>Почти четыре десятилетия мы находимся в авангарде инноваций керамогранита, обслуживая архитекторов, дизайнеров и строительных профессионалов по всему миру.</p>
+                    <p>Наша приверженность техническому совершенству и эстетическому идеалу утвердила нас как надежного партнера для престижных жилых и коммерческих проектов.</p>
+                    <p>Каждая плитка проходит строгий контроль качества, обеспечивая стабильную производительность и визуальное воздействие, превышающее международные стандарты.</p>
+                </div>
+                <div class="about-image"></div>
             </div>
+        </section>
 
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <div class="space-y-8">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-brand-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Телефон</h4>
-                                <p class="text-brand-100">+7 (495) 123-45-67</p>
-                                <p class="text-brand-100">+7 (800) 100-20-30</p>
-                            </div>
-                        </div>
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2 class="section-title">Избранные проекты</h2>
+            <p class="section-subtitle">Откройте для себя, как наша плитка преображает пространства в реальных архитектурных проектах.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background: url('keys/project-1?prompt=Modern%20hotel%20lobby%20with%20large%20format%20marble-look%20porcelain%20tiles%2C%20elegant%20interior') center/cover;"></div>
+                <div class="gallery-item" style="background: url('keys/project-2?prompt=Contemporary%20office%20building%20entrance%2C%20porcelain%20tiles%2C%20professional%20architecture') center/cover;"></div>
+                <div class="gallery-item" style="background: url('keys/project-3?prompt=Luxury%20residential%20bathroom%20with%20large%20format%20porcelain%20tiles%2C%20spa-like%20design') center/cover;"></div>
+                <div class="gallery-item" style="background: url('keys/project-4?prompt=Modern%20restaurant%20interior%2C%20wood-look%20porcelain%20flooring%2C%20warm%20atmosphere') center/cover;"></div>
+            </div>
+        </section>
 
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-brand-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Email</h4>
-                                <p class="text-brand-100">sales@ukorsm.ru</p>
-                                <p class="text-brand-100">info@ukorsm.ru</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-brand-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-semibold mb-2">Адрес</h4>
-                                <p class="text-brand-100">г. Москва, ул. Строительная, д. 15</p>
-                                <p class="text-brand-100">БЦ "Керамика Плаза", офис 207</p>
-                            </div>
-                        </div>
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="contact-content">
+                <h2 class="section-title">Запросить консультацию</h2>
+                <p class="section-subtitle">Свяжитесь с нашими техническими специалистами, чтобы обсудить требования вашего проекта и получить персональные рекомендации.</p>
+                
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Полное имя *</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                </div>
-
-                <div class="bg-white rounded-xl p-8">
-                    <h3 class="text-2xl font-bold text-brand-900 mb-6">Запросить предложение</h3>
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-medium text-brand-900 mb-2">Название компании</label>
-                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent" placeholder="ООО 'Ваша компания'">
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-brand-900 mb-2">Имя</label>
-                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent" placeholder="Иван Иванов">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-brand-900 mb-2">Телефон</label>
-                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent" placeholder="+7 (999) 123-45-67">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-brand-900 mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent" placeholder="ivan@company.ru">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-brand-900 mb-2">Описание проекта</label>
-                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent" placeholder="Расскажите о вашем проекте, площади, требованиях к материалам..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-brand-600 text-white py-4 rounded-lg text-lg font-semibold hover:bg-brand-700 transition">
-                            Отправить запрос
-                        </button>
-                    </form>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Компания / Организация</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Адрес электронной почты *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project">Детали проекта</label>
+                        <textarea id="project" name="project" placeholder="Пожалуйста, опишите требования вашего проекта, площадь, сроки и любые специфические технические потребности..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Запросить консультацию</button>
+                </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <img src="yEtYzPaeFWjyQIYBLHlSR" alt="UKOR SM" class="h-10 w-10">
-                    </div>
-                    <p class="text-gray-400 leading-relaxed">
-                        Ваш надежный партнер в мире премиального керамогранита для бизнеса.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Продукция</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#products" class="hover:text-white transition">Офисная плитка</a></li>
-                        <li><a href="#products" class="hover:text-white transition">Торговые помещения</a></li>
-                        <li><a href="#products" class="hover:text-white transition">Жилые комплексы</a></li>
-                        <li><a href="#products" class="hover:text-white transition">Специальные проекты</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Услуги</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#contact" class="hover:text-white transition">Консультации</a></li>
-                        <li><a href="#about" class="hover:text-white transition">Доставка</a></li>
-                        <li><a href="#contact" class="hover:text-white transition">Техподдержка</a></li>
-                        <li><a href="#about" class="hover:text-white transition">Гарантия</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-6">Контакты</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li>+7 (495) 123-45-67</li>
-                        <li>sales@ukorsm.ru</li>
-                        <li>г. Москва, ул. Строительная, 15</li>
-                    </ul>
-                </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Контактная информация</h4>
+                <p>📍 пр. Дизайнерский Квартал, 123<br>Столичный Город, СГ 12345</p>
+                <p>📞 +7 (495) 123-45-67</p>
+                <p>✉️ info@minervatiles.ru</p>
+                <a href="#" onclick="downloadCatalog()">📖 Скачать полный каталог</a>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2025. Все права защищены.</p>
+            
+            <div class="footer-section">
+                <h4>Коллекции</h4>
+                <a href="#">Мраморная эссенция</a>
+                <a href="#">Натуральное дерево</a>
+                <a href="#">Городской бетон</a>
+                <a href="#">Коллекция камня</a>
+                <a href="#">Технические характеристики</a>
             </div>
+            
+            <div class="footer-section">
+                <h4>Услуги</h4>
+                <a href="#">Техническая консультация</a>
+                <a href="#">Заказ образцов</a>
+                <a href="#">Поддержка укладки</a>
+                <a href="#">Планирование проекта</a>
+                <a href="#">CAD ресурсы</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Ресурсы</h4>
+                <a href="#">Руководства по укладке</a>
+                <a href="#">Технические паспорта</a>
+                <a href="#">Уход и обслуживание</a>
+                <a href="#">Отчет об экологичности</a>
+                <a href="#">Сертификаты</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Минерва Плитка. Премиальные керамогранитные решения. Все права защищены.</p>
         </div>
     </footer>
 
-    <!-- Catalog Modal -->
-    <div id="catalogModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl p-8 max-w-lg w-full mx-4 relative">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">×</button>
-            
-            <div class="text-center">
-                <div class="w-20 h-20 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-10 h-10 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                    </svg>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-brand-900 mb-4">Каталог продукции</h3>
-                
-                <div id="loadingState" class="mb-6">
-                    <div class="inline-flex items-center space-x-2 text-brand-600">
-                        <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-brand-600"></div>
-                        <span>Подготавливаем каталог...</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
-                        <div id="progressBar" class="bg-brand-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
-                    </div>
-                </div>
-                
-                <div id="resultState" class="hidden">
-                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
-                        <div class="flex items-center space-x-3 mb-3">
-                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-                            </svg>
-                            <h4 class="font-semibold text-yellow-800">Каталог в разработке</h4>
-                        </div>
-                        <p class="text-yellow-700 text-sm leading-relaxed">
-                            Мы работаем над обновленной версией каталога продукции. 
-                            Ожидайте его выпуск в ближайшее время!
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <p class="text-gray-600">А пока что вы можете:</p>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-1.5 h-1.5 bg-brand-600 rounded-full"></div>
-                                <span>Связаться с менеджером для консультации</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <div class="w-1.5 h-1.5 bg-brand-600 rounded-full"></div>
-                                <span>Запросить индивидуальное предложение</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <div class="w-1.5 h-1.5 bg-brand-600 rounded-full"></div>
-                                <span>Подписаться на уведомления о новинках</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-3 mt-6">
-                    <button id="contactManager" class="flex-1 bg-brand-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-brand-700 transition">
-                        Связаться с менеджером
-                    </button>
-                    <button id="closeModal2" class="flex-1 border border-gray-300 text-gray-700 py-3 px-4 rounded-lg font-medium hover:bg-gray-50 transition">
-                        Закрыть
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script type="module">
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                // Skip empty or invalid selectors
-                if (href && href !== '#') {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ 
+                behavior: 'smooth' 
             });
-        });
+        }
+        window.scrollToSection = scrollToSection;
+
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+        window.toggleSidebar = toggleSidebar;
+
+        // Download catalog function
+        function downloadCatalog() {
+            alert('Здесь будет инициирована загрузка каталога. В реальном приложении это запустит загрузку PDF или откроет форму запроса каталога.');
+        }
+        window.downloadCatalog = downloadCatalog;
 
         // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Спасибо за ваш запрос! Мы свяжемся с вами в течение рабочего дня.');
-        });
-
-        // Add scroll effect to navigation
-        let lastScrollTop = 0;
-        const nav = document.querySelector('nav');
-        
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
             
-            if (scrollTop > 100) {
-                nav.classList.add('shadow-xl');
+            alert('Спасибо за ваш запрос! Наша техническая команда свяжется с вами в течение 24 часов для обсуждения требований вашего проекта.');
+            
+            // In a real application, you would send this data to your backend
+            console.log('Form submission:', data);
+            event.target.reset();
+        }
+        window.handleSubmit = handleSubmit;
+
+        // Mobile responsive handling
+        function handleResize() {
+            const mobileHeader = document.querySelector('.mobile-header');
+            if (window.innerWidth <= 1024) {
+                mobileHeader.style.display = 'flex';
             } else {
-                nav.classList.remove('shadow-xl');
+                mobileHeader.style.display = 'none';
+                document.getElementById('sidebar').classList.remove('open');
             }
-            
-            lastScrollTop = scrollTop;
-        });
+        }
 
-        // Catalog modal functionality
-        const modal = document.getElementById('catalogModal');
-        const catalogBtns = document.querySelectorAll('#catalogBtn2');
-        const closeModalBtns = document.querySelectorAll('#closeModal, #closeModal2');
-        const contactManagerBtn = document.getElementById('contactManager');
-        const loadingState = document.getElementById('loadingState');
-        const resultState = document.getElementById('resultState');
-        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial check
 
-        // Open modal
-        catalogBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                
-                // Reset states
-                loadingState.classList.remove('hidden');
-                resultState.classList.add('hidden');
-                progressBar.style.width = '0%';
-                
-                // Simulate loading
-                let progress = 0;
-                const loadingInterval = setInterval(() => {
-                    progress += Math.random() * 30;
-                    if (progress >= 100) {
-                        progress = 100;
-                        clearInterval(loadingInterval);
-                        
-                        setTimeout(() => {
-                            loadingState.classList.add('hidden');
-                            resultState.classList.remove('hidden');
-                        }, 500);
+        // Smooth scroll for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        // Close mobile sidebar after navigation
+                        if (window.innerWidth <= 1024) {
+                            document.getElementById('sidebar').classList.remove('open');
+                        }
                     }
-                    progressBar.style.width = Math.min(progress, 100) + '%';
-                }, 300);
-            });
-        });
-
-        // Close modal
-        closeModalBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Close on backdrop click
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Contact manager button
-        contactManagerBtn.addEventListener('click', function() {
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-            
-            // Scroll to contact section
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
                 });
-            }
+            });
         });
     </script>
 </body>
